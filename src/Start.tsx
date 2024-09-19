@@ -1,11 +1,8 @@
-import { useNavigate, useParams } from "react-router-dom";
 import useSocket from "./hooks";
 import { useEffect, useState } from "react";
 import data from "./data.json";
 
 const Start = () => {
-  const { id } = useParams();
-
   const socket = useSocket();
 
   const [messages, setMessages] = useState<string>();
@@ -14,7 +11,6 @@ const Start = () => {
   const [page, setPage] = useState<number>(1); // Assuming "Next" moves between pages
 
   const move = Math.round(Math.random() * data.length);
-  const navigate = useNavigate();
 
   //   useEffect(() => {
   //     if (!socket) return;
@@ -39,6 +35,7 @@ const Start = () => {
     if (socket) {
       socket.emit("message", move);
       setInput("");
+      setMessages("");
     }
   };
 
