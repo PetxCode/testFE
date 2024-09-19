@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import { Socket } from "socket.io-client";
 
-const SOCKET_SERVER_URL = "http://localhost:1122"; // Update with your server address
+const SOCKET_SERVER_URL = "https://testbe-wqdo.onrender.com"; // Update with your server address
 
 const useSocket = () => {
   const [socket, setSocket] = useState<typeof Socket | null>(null);
